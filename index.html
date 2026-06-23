@@ -104,6 +104,20 @@
         }
         .tarjeta:hover { transform: translateY(-5px); }
         .tarjeta h3 { color: #18bc9c; margin-bottom: 1rem; }
+        
+        /* Estilos para la galería de imágenes */
+        .foto-galeria {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .foto-galeria:hover { 
+            transform: scale(1.05); 
+        }
 
         /* Fondo alternativo para secciones */
         .fondo-gris { background-color: #f8f9fa; }
@@ -153,6 +167,18 @@
     <section id="hardware" class="seccion fondo-blanco">
         <h2>La Plataforma: Robot Mini UC3M</h2>
         <p class="descripcion">Mini es un robot de sobremesa diseñado para ofrecer actividades de estimulación cognitiva, afectiva y física a personas mayores, y fue desarrollada en el Robotics Lab.</p>
+        <section id="galeria" class="seccion fondo-gris">
+        <h2>Diferentes versiones de Mini</h2>
+        <p class="descripcion">Diferentes perspectivas de nuestra plataforma de investigación durante las pruebas de campo en la universidad.</p>
+        
+        <div class="grid">
+            <img src="imagenes/Mini V1.png" alt="Vista frontal del Robot Mini" class="foto-galeria">
+            
+            <img src="imagenes/MINI V2.png" alt="Vista lateral con actuadores" class="foto-galeria">
+            
+            <img src="imagenes/MINI V3.png" alt="Robot interactuando con usuario" class="foto-galeria">
+        </div>
+    </section>
     </section>
 
     <section id="interaccion" class="seccion fondo-gris">
