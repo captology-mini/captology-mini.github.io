@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Profesional</title>
+    <title>Experimento Robot Mini - UC3M</title>
     
-    <!-- Aquí empieza el diseño (CSS) -->
     <style>
         /* Ajustes básicos para que se vea igual en todos los navegadores */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,6 +22,7 @@
             text-align: center; 
             position: sticky;
             top: 0;
+            z-index: 1000;
         }
         nav a { 
             color: #fff; 
@@ -49,7 +49,7 @@
             font-size: 1.2rem; 
             color: #7f8c8d; 
             margin-bottom: 2rem; 
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -74,8 +74,16 @@
         }
         .seccion h2 { 
             font-size: 2rem;
-            margin-bottom: 2rem; 
+            margin-bottom: 1.5rem; 
             color: #2c3e50; 
+        }
+        .seccion p.descripcion {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Tarjetas de Servicios/Proyectos */
@@ -97,6 +105,10 @@
         .tarjeta:hover { transform: translateY(-5px); }
         .tarjeta h3 { color: #18bc9c; margin-bottom: 1rem; }
 
+        /* Fondo alternativo para secciones */
+        .fondo-gris { background-color: #f8f9fa; }
+        .fondo-blanco { background-color: #fff; }
+
         /* Pie de página */
         footer { 
             background-color: #1a252f; 
@@ -105,6 +117,7 @@
             padding: 2rem; 
             margin-top: 2rem; 
         }
+        footer p { margin-bottom: 0.5rem; }
 
         /* Ajustes para Teléfonos Móviles */
         @media (max-width: 600px) {
@@ -115,51 +128,85 @@
 </head>
 <body>
 
-    <!-- Menú Superior -->
     <header>
         <nav>
             <a href="#inicio">Inicio</a>
-            <a href="#sobre-mi">Sobre Mí</a>
-            <a href="#servicios">Servicios</a>
+            <a href="#problema">El Reto</a>
+            <a href="#hardware">El Robot</a>
+            <a href="#interaccion">Interacción</a>
+            <a href="#resultados">Resultados</a>
         </nav>
     </header>
 
-    <!-- Bienvenida -->
     <section id="inicio" class="hero">
-        <h1>¡Hola! Soy [Tu Nombre]</h1>
-        <p>Bienvenido a mi espacio web. Soy un profesional dedicado a crear soluciones increíbles. Reemplaza este texto con tu propia frase ganadora.</p>
-        <a href="#sobre-mi" class="btn">Conoce más</a>
+        <h1>Interacción Proactiva: Captando la atención con el Robot Mini</h1>
+        <p>Un experimento de robótica social en la Universidad Carlos III de Madrid para medir el engagement humano-robot mediante el Modelo de Comportamiento de Fogg.</p>
+        <a href="#hardware" class="btn">Conocer al Robot</a>
     </section>
 
-    <!-- Sobre Mí -->
-    <section id="sobre-mi" class="seccion">
-        <h2>Sobre Mí</h2>
-        <p>Este es el lugar perfecto para escribir un resumen sobre tu experiencia, tus estudios o simplemente lo que te apasiona hacer. Busca presentarte de una forma natural y cercana para conectar con las personas que visiten tu perfil.</p>
+    <section id="problema" class="seccion fondo-gris">
+        <h2>El Desafío de la Atención</h2>
+        <p class="descripcion">En un mundo lleno de pantallas y estímulos constantes, captar la atención de un humano de forma natural es un reto complejo. La realidad nos demuestra que un autómata estático es ignorado por los transeúntes, mientras que un robot que se mueve o interactúa de forma proactiva genera una curiosidad inmediata.</p>
+        <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar un sistema autónomo en el Robot Mini para captar y mantener la atención de los usuarios en un entorno universitario dinámico.</p>
     </section>
 
-    <!-- Servicios o Habilidades -->
-    <section id="servicios" class="seccion" style="background-color: #f8f9fa;">
-        <h2>Lo que ofrezco</h2>
+    <section id="hardware" class="seccion fondo-blanco">
+        <h2>La Plataforma: Robot Mini UC3M</h2>
+        <p class="descripcion">Una herramienta de investigación accesible, empática y de código abierto desarrollada en el Robotics Lab.</p>
         <div class="grid">
             <div class="tarjeta">
-                <h3>Diseño Creativo</h3>
-                <p>Descripción breve de tu primera habilidad principal o servicio que ofreces.</p>
+                <h3>Origen y Diseño</h3>
+                <p>Desarrollado en la Universidad Carlos III de Madrid. Posee una estética no amenazante y empática, ideal para la aceptación en entornos públicos.</p>
             </div>
             <div class="tarjeta">
-                <h3>Desarrollo</h3>
-                <p>Explica qué problemas puedes resolver a tus futuros clientes o empleadores.</p>
+                <h3>Hardware TRL 7</h3>
+                <p>Cuenta con un nivel de madurez tecnológica TRL 7, dotándolo de una arquitectura robusta, modular e industrializable para pruebas de campo.</p>
             </div>
             <div class="tarjeta">
-                <h3>Asesoramiento</h3>
-                <p>Detalla el valor extra que aportas con tu trabajo diario.</p>
+                <h3>Propósito Asistencial</h3>
+                <p>Robot social de sobremesa diseñado específicamente para ofrecer actividades de estimulación cognitiva, afectiva y de enganche (engagement).</p>
             </div>
         </div>
     </section>
 
-    <!-- Pie de página -->
+    <section id="interaccion" class="seccion fondo-gris">
+        <h2>¿Cómo funciona la interacción?</h2>
+        <p class="descripcion">El experimento se basa en la <strong>Captología</strong> (el estudio de la tecnología persuasiva). El robot actúa como el "Trigger" o estímulo dentro del Modelo de Comportamiento de Fogg (FBM) a través de los siguientes canales:</p>
+        <div class="grid">
+            <div class="tarjeta">
+                <h3>Visión Artificial</h3>
+                <p>El autómata no espera pasivo. Utiliza cámaras y algoritmos para detectar exactamente cuándo una persona entra en su campo de visión.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Canal Visual (Cinemática)</h3>
+                <p>Emplea movimientos proactivos, como el seguimiento facial y el saludo con sus actuadores, sumado a señales lumínicas para alertar al transeúnte.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Canal Auditivo</h3>
+                <p>Integración de sonidos específicos y síntesis de voz programada para incrementar el interés y fomentar la atención conjunta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados" class="seccion fondo-blanco">
+        <h2>Resultados del Experimento</h2>
+        <p class="descripcion"><em>(Sección reservada para los datos obtenidos tras la fase de pruebas de campo)</em></p>
+        <div class="grid">
+            <div class="tarjeta">
+                <h3>Porcentaje de Éxito</h3>
+                <p>Métricas sobre la cantidad de transeúntes que detuvieron su marcha o establecieron contacto visual directo con el robot.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Atención Sostenida</h3>
+                <p>Análisis del tiempo medio de enganche (engagement) logrado mediante los diferentes estímulos cinéticos y auditivos.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 [Tu Nombre]. Todos los derechos reservados.</p>
-        <p>Contacto: tu-correo@email.com</p>
+        <p><strong>Autor:</strong> [Tu Nombre] - Estudiante de Ingeniería Electrónica Industrial y Automática.</p>
+        <p><strong>Institución:</strong> Universidad Carlos III de Madrid (UC3M) - Robotics Lab.</p>
+        <p><em>Trabajo de Fin de Grado - 2026</em></p>
     </footer>
 
 </body>
