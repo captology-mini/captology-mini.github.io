@@ -134,6 +134,21 @@
             color: #18bc9c; /* Destacamos la P de Prompt en tu color corporativo */
             font-weight: bold;
         }
+        /* Estilos para los pies de foto (Captions) */
+        .figura-robot {
+            margin: 0; /* Quita el margen invisible que traen las figuras por defecto */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .pie-de-foto {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
 
         /* Fondo alternativo para secciones */
         .fondo-gris { background-color: #f8f9fa; }
@@ -179,21 +194,22 @@
         <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas</p>
     </section>
 
-    <section id="hardware" class="seccion fondo-blanco">
-        <h2>La Plataforma: Robot Mini UC3M</h2>
-        <p class="descripcion">Mini es un robot de sobremesa diseñado para ofrecer actividades de estimulación cognitiva, afectiva y física a personas mayores, y fue desarrollada en el Robotics Lab.</p>
-        <section id="galeria" class="seccion fondo-gris">
-        <h2>Diferentes versiones de Mini</h2>
-        <p class="descripcion">El objetivo de los robots sociales de la línea Mini es mejorar la calidad de vida de las personas mayores. En las fotos de abajo puedes ver las diferentes versiones de esta línea, para este experimento se ha utilizado la tercera versión de Mini.</p>
-        
-        <div class="grid">
-            <img src="image/MINI_V1.png" alt="MINI V1" class="foto-galeria">
+    <div class="grid">
+            <figure class="figura-robot">
+                <img src="image/MINI_V1.png" alt="MINI V1" class="foto-galeria">
+                <figcaption class="pie-de-foto">Robot Mini V1: Primer prototipo estático</figcaption>
+            </figure>
             
-            <img src="image/MINI_V2.png" alt="MINI V2" class="foto-galeria">
+            <figure class="figura-robot">
+                <img src="image/MINI_V2.png" alt="MINI V2" class="foto-galeria">
+                <figcaption class="pie-de-foto">Robot Mini V2: Integración de actuadores</figcaption>
+            </figure>
             
-            <img src="image/MINI_V3.png" alt="MINI V3" class="foto-galeria">
+            <figure class="figura-robot">
+                <img src="image/MINI_V3.png" alt="MINI V3" class="foto-galeria">
+                <figcaption class="pie-de-foto">Robot Mini V3: Plataforma final del experimento</figcaption>
+            </figure>
         </div>
-    </section>
     </section>
 
    <section id="interaccion" class="seccion fondo-gris">
