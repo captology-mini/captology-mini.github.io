@@ -2,21 +2,165 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Primera Web en GitHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Profesional</title>
+    
+    <!-- Aquí empieza el diseño (CSS) -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f4f4f9;
+        /* Ajustes básicos para que se vea igual en todos los navegadores */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background-color: #f8f9fa; 
         }
-        h1 {
-            color: #333;
+        
+        /* Menú de Navegación */
+        header { 
+            background-color: #1a252f; 
+            padding: 1.2rem 0; 
+            text-align: center; 
+            position: sticky;
+            top: 0;
+        }
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #18bc9c; }
+
+        /* Sección Principal (Hero) */
+        .hero { 
+            background-color: #fff; 
+            padding: 5rem 2rem; 
+            text-align: center; 
+            border-bottom: 1px solid #eaeaea; 
+        }
+        .hero h1 { 
+            font-size: 2.8rem; 
+            color: #2c3e50; 
+            margin-bottom: 1rem; 
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            color: #7f8c8d; 
+            margin-bottom: 2rem; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn { 
+            display: inline-block; 
+            padding: 12px 30px; 
+            background-color: #18bc9c; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            transition: background 0.3s; 
+        }
+        .btn:hover { background-color: #128f76; }
+
+        /* Contenedor de las secciones */
+        .seccion { 
+            padding: 4rem 2rem; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            text-align: center; 
+        }
+        .seccion h2 { 
+            font-size: 2rem;
+            margin-bottom: 2rem; 
+            color: #2c3e50; 
+        }
+        
+        /* Tarjetas de Servicios/Proyectos */
+        .grid { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        .tarjeta { 
+            background: #fff; 
+            padding: 30px 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            width: 100%; 
+            max-width: 300px; 
+            transition: transform 0.3s;
+        }
+        .tarjeta:hover { transform: translateY(-5px); }
+        .tarjeta h3 { color: #18bc9c; margin-bottom: 1rem; }
+
+        /* Pie de página */
+        footer { 
+            background-color: #1a252f; 
+            color: #ecf0f1; 
+            text-align: center; 
+            padding: 2rem; 
+            margin-top: 2rem; 
+        }
+
+        /* Ajustes para Teléfonos Móviles */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: flex; flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
-    <h1>¡Hola Mundo!</h1>
-    <p>Esta es mi primera página web alojada en GitHub Pages.</p>
+
+    <!-- Menú Superior -->
+    <header>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#servicios">Servicios</a>
+        </nav>
+    </header>
+
+    <!-- Bienvenida -->
+    <section id="inicio" class="hero">
+        <h1>¡Hola! Soy [Tu Nombre]</h1>
+        <p>Bienvenido a mi espacio web. Soy un profesional dedicado a crear soluciones increíbles. Reemplaza este texto con tu propia frase ganadora.</p>
+        <a href="#sobre-mi" class="btn">Conoce más</a>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="seccion">
+        <h2>Sobre Mí</h2>
+        <p>Este es el lugar perfecto para escribir un resumen sobre tu experiencia, tus estudios o simplemente lo que te apasiona hacer. Busca presentarte de una forma natural y cercana para conectar con las personas que visiten tu perfil.</p>
+    </section>
+
+    <!-- Servicios o Habilidades -->
+    <section id="servicios" class="seccion" style="background-color: #f8f9fa;">
+        <h2>Lo que ofrezco</h2>
+        <div class="grid">
+            <div class="tarjeta">
+                <h3>Diseño Creativo</h3>
+                <p>Descripción breve de tu primera habilidad principal o servicio que ofreces.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Desarrollo</h3>
+                <p>Explica qué problemas puedes resolver a tus futuros clientes o empleadores.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Asesoramiento</h3>
+                <p>Detalla el valor extra que aportas con tu trabajo diario.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 [Tu Nombre]. Todos los derechos reservados.</p>
+        <p>Contacto: tu-correo@email.com</p>
+    </footer>
+
 </body>
 </html>
