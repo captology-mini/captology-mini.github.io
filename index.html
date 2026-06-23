@@ -105,7 +105,7 @@
         .tarjeta:hover { transform: translateY(-5px); }
         .tarjeta h3 { color: #18bc9c; margin-bottom: 1rem; }
         
-        /* Estilos para la galería de imágenes */
+        /* Estilos para la galería de imágenes BASE */
         .foto-galeria {
             width: 100%;
             max-width: 300px;
@@ -117,24 +117,75 @@
             margin: 0 auto; 
             transition: transform 0.3s;
         }
-        .foto-galeria:hover { 
-            transform: scale(1.05); 
+
+        /* --- NUEVOS ESTILOS PARA EL SLIDER --- */
+        #slider-container {
+            max-width: 600px; /* Ancho máximo del slider */
+            width: 100%;
+            overflow: hidden; /* Oculta lo que se sale del borde */
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin: 0 auto; 
         }
 
-        /* Estilos para los pies de foto (Captions) */
-        .figura-robot {
-            margin: 0; 
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .slider-track {
+            display: flex; /* Pone las imágenes en una fila horizontal */
+            transition: transform 0.5s ease-in-out; /* Animación de desplazamiento */
+            width: 100%;
         }
+
+        .slide {
+            flex: 0 0 100%; /* Cada imagen ocupa exactamente el 100% de la caja */
+            width: 100%;
+            height: 350px; /* TAMAÑO FIJO para que todas sean exactamente iguales */
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
         .pie-de-foto {
-            margin-top: 12px;
+            margin: 0;
             font-size: 0.95rem;
             color: #7f8c8d;
             font-weight: 600;
+            flex: 1;
+            text-align: center;
         }
+
+        .nav-arrow {
+            background-color: transparent;
+            border: 2px solid #18bc9c;
+            color: #18bc9c;
+            font-size: 1.5rem;
+            font-family: monospace;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* Botones redondos */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-arrow:hover {
+            background-color: #18bc9c;
+            color: #fff;
+        }
+        /* --- FIN ESTILOS SLIDER --- */
 
         /* Contenedor flotante e hiper-destacado para la fórmula de Fogg */
         .contenedor-formula {
@@ -193,6 +244,7 @@
             .hero h1 { font-size: 2.2rem; }
             .formula-destacada { font-size: 3rem; }
             nav { display: flex; flex-direction: column; gap: 15px; }
+            .slide { height: 250px; } /* Imágenes un poco más pequeñas en móvil */
         }
     </style>
 </head>
@@ -224,19 +276,18 @@
         <p class="descripcion">Prototipos de investigación y desarrollo cinético diseñados en el laboratorio hasta alcanzar el modelo final del experimento.</p>
         
         <div class="grid">
-            <figure class="figura-robot">
-                <img src="image/MINI_V1.png" alt="MINI V1" class="foto-galeria">
-                <figcaption class="pie-de-foto">Robot Mini V1: Primer prototipo estático</figcaption>
-            </figure>
-            
-            <figure class="figura-robot">
-                <img src="image/MINI_V2.png" alt="MINI V2" class="foto-galeria">
-                <figcaption class="pie-de-foto">Robot Mini V2: Integración de actuadores</figcaption>
-            </figure>
-            
-            <figure class="figura-robot">
-                <img src="image/MINI_V3.png" alt="MINI V3" class="foto-galeria">
-                <figcaption class="pie-de-foto">Robot Mini V3: Plataforma final del experimento</figcaption>
+            <figure id="slider-container">
+                <div class="slider-track" id="slider-track">
+                    <img src="image/MINI_V1.png" alt="MINI V1" class="slide">
+                    <img src="image/MINI_V2.png" alt="MINI V2" class="slide">
+                    <img src="image/MINI_V3.png" alt="MINI V3" class="slide">
+                </div>
+                
+                <div class="pagination-controls">
+                    <button id="prev-btn" class="nav-arrow" aria-label="Anterior">&lt;</button>
+                    <figcaption id="slider-caption" class="pie-de-foto">Robot Mini V1: Primer prototipo estático</figcaption>
+                    <button id="next-btn" class="nav-arrow" aria-label="Siguiente">&gt;</button>
+                </div>
             </figure>
         </div>
     </section>
@@ -275,7 +326,7 @@
 
         <div style="margin-top: 3rem; background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
             <h3 style="color: #18bc9c; margin-bottom: 1rem; text-align: center;">La Clave del Experimento: El Robot como "Trigger"</h3>
-            <p style="color: #555; font-size: 1.1rem;">
+            <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
                 Este experimento se centra en el <strong>Prompt</strong> o el <strong>Trigger</strong>, en reconocer cuál es el método cinemático o sonoro más eficaz para llamar la atención del transeúnte y cruzar la línea de acción del modelo.
             </p>
         </div>
@@ -287,5 +338,52 @@
         <p><em>Trabajo de Fin de Grado - 2026</em></p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('slider-track');
+            const slides = Array.from(track.children);
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const caption = document.getElementById('slider-caption');
+
+            // Textos que cambiarán con cada imagen
+            const captions = [
+                "Robot Mini V1: Primer prototipo estático",
+                "Robot Mini V2: Integración de actuadores",
+                "Robot Mini V3: Plataforma final del experimento"
+            ];
+
+            let currentIndex = 0;
+
+            const updateCaption = (index) => {
+                caption.textContent = captions[index];
+            };
+
+            const moveToSlide = (index) => {
+                const amountToMove = slides[index].clientWidth * index;
+                track.style.transform = `translateX(-${amountToMove}px)`;
+                currentIndex = index;
+                updateCaption(index);
+            };
+
+            nextBtn.addEventListener('click', () => {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= slides.length) nextIndex = 0;
+                moveToSlide(nextIndex);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                let prevIndex = currentIndex - 1;
+                if (prevIndex < 0) prevIndex = slides.length - 1;
+                moveToSlide(prevIndex);
+            });
+
+            // Ajusta el tamaño si giras el móvil o cambias la ventana
+            window.addEventListener('resize', () => {
+                const amountToMove = slides[currentIndex].clientWidth * currentIndex;
+                track.style.transform = `translateX(-${amountToMove}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
