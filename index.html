@@ -106,48 +106,72 @@
         .tarjeta h3 { color: #18bc9c; margin-bottom: 1rem; }
         
         /* Estilos para la galería de imágenes */
-      .foto-galeria {
+        .foto-galeria {
             width: 100%;
             max-width: 300px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            object-fit: contain; /* <-- Aquí está la magia */
-            display: block; /* <-- Elimina márgenes invisibles en la base */
-            margin: 0 auto; /* Centra la imagen dentro de su espacio */
+            object-fit: contain; 
+            display: block; 
+            margin: 0 auto; 
             transition: transform 0.3s;
         }
         .foto-galeria:hover { 
             transform: scale(1.05); 
         }
-        /* Estilo para la fórmula de Fogg */
-        .formula-destacada {
-            font-size: 3.5rem;
-            font-family: 'Times New Roman', Times, serif; /* Tipografía matemática */
-            font-style: italic;
-            color: #2c3e50;
-            text-align: center;
-            margin: 2rem 0;
-            letter-spacing: 4px;
-        }
-        .formula-destacada span {
-            color: #18bc9c; /* Destacamos la P de Prompt en tu color corporativo */
-            font-weight: bold;
-        }
+
         /* Estilos para los pies de foto (Captions) */
         .figura-robot {
-            margin: 0; /* Quita el margen invisible que traen las figuras por defecto */
+            margin: 0; 
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
         .pie-de-foto {
             margin-top: 12px;
             font-size: 0.95rem;
             color: #7f8c8d;
             font-weight: 600;
+        }
+
+        /* Contenedor flotante e hiper-destacado para la fórmula de Fogg */
+        .contenedor-formula {
+            background: linear-gradient(135deg, #ffffff, #f0f4f8);
+            border-left: 6px solid #18bc9c;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            margin: 3rem auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .formula-destacada {
+            font-size: 4.2rem;
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            font-style: italic;
+            color: #2c3e50;
+            margin: 0;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+        .formula-destacada span {
+            color: #fff;
+            background-color: #18bc9c; 
+            padding: 0 1.2rem;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(24, 188, 156, 0.4); 
+            animation: latido 2.5s infinite; 
+        }
+
+        /* Animación de latido para la P de Prompt */
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
         }
 
         /* Fondo alternativo para secciones */
@@ -167,6 +191,7 @@
         /* Ajustes para Teléfonos Móviles */
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.2rem; }
+            .formula-destacada { font-size: 3rem; }
             nav { display: flex; flex-direction: column; gap: 15px; }
         }
     </style>
@@ -191,10 +216,14 @@
     <section id="problema" class="seccion fondo-gris">
         <h2>El Desafío de la Atención</h2>
         <p class="descripcion">En un mundo lleno de pantallas y estímulos constantes, captar la atención de un humano de forma natural es un reto complejo. La realidad nos demuestra que un autómata estático es ignorado por los transeúntes, mientras que un robot que se mueve o interactúa de forma diferente puede conseguir llamar la atención.</p>
-        <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas</p>
+        <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas.</p>
     </section>
 
-    <div class="grid">
+    <section id="hardware" class="seccion fondo-blanco">
+        <h2>Evolución de la Plataforma</h2>
+        <p class="descripcion">Prototipos de investigación y desarrollo cinético diseñados en el laboratorio hasta alcanzar el modelo final del experimento.</p>
+        
+        <div class="grid">
             <figure class="figura-robot">
                 <img src="image/MINI_V1.png" alt="MINI V1" class="foto-galeria">
                 <figcaption class="pie-de-foto">Robot Mini V1: Primer prototipo estático</figcaption>
@@ -212,12 +241,17 @@
         </div>
     </section>
 
-   <section id="interaccion" class="seccion fondo-gris">
+    <section id="interaccion" class="seccion fondo-gris">
         <h2>¿Cómo funciona la interacción?</h2>
         <p class="descripcion">El experimento se basa en la <strong>Captología</strong> (el estudio de la tecnología persuasiva). El término captology lo acuñó B.J. Fogg, un académico de la Universidad de Stanford y uno de los padres de la robótica social. Este establece que, para que una acción ocurra, deben coincidir tres elementos simultáneamente:</p>
         
-        <div class="formula-destacada">
-            B = M &middot; A &middot; <span>P</span>
+        <div class="contenedor-formula">
+            <div class="formula-destacada">
+                B = M &middot; A &middot; <span>P</span>
+            </div>
+            <p style="margin-top: 1rem; color: #7f8c8d; font-size: 1rem;">
+                <em>Ecuación del Modelo de Comportamiento de Fogg</em>
+            </p>
         </div>
 
         <div class="grid">
@@ -241,7 +275,7 @@
 
         <div style="margin-top: 3rem; background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
             <h3 style="color: #18bc9c; margin-bottom: 1rem; text-align: center;">La Clave del Experimento: El Robot como "Trigger"</h3>
-            <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+            <p style="color: #555; font-size: 1.1rem;">
                 Este experimento se centra en el <strong>Prompt</strong> o el <strong>Trigger</strong>, en reconocer cuál es el método cinemático o sonoro más eficaz para llamar la atención del transeúnte y cruzar la línea de acción del modelo.
             </p>
         </div>
