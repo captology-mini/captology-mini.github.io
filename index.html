@@ -1,4 +1,4 @@
- PI-ENGAGEMENT-CAPTOLOGY<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -33,12 +33,21 @@
         }
         nav a:hover { color: #18bc9c; }
 
-        /* Sección Principal (Hero) */
+        /* --- SECCIÓN PRINCIPAL (HERO) MODIFICADA EN PARALELO --- */
         .hero { 
             background-color: #fff; 
             padding: 5rem 2rem; 
-            text-align: center; 
             border-bottom: 1px solid #eaeaea; 
+            display: flex;          /* Activa el diseño de lado a lado */
+            align-items: center;    /* Centra verticalmente el texto y la imagen */
+            justify-content: space-between; 
+            max-width: 1100px;      /* Limita el ancho de la sección */
+            margin: 0 auto;         /* Centra la sección en la pantalla */
+            gap: 40px;              /* Separación entre el texto y la imagen */
+        }
+        .hero-texto {
+            flex: 1;                /* Toma el 50% del espacio */
+            text-align: left;       /* Alinea el texto a la izquierda */
         }
         .hero h1 { 
             font-size: 2.8rem; 
@@ -49,21 +58,18 @@
             font-size: 1.2rem; 
             color: #7f8c8d; 
             margin-bottom: 2rem; 
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;       /* Evita líneas de texto demasiado largas */
         }
-        .btn { 
-            display: inline-block; 
-            padding: 12px 30px; 
-            background-color: #18bc9c; 
-            color: #fff; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            transition: background 0.3s; 
+        .hero-imagen {
+            flex: 1;                /* Toma el otro 50% del espacio */
+            text-align: center;
         }
-        .btn:hover { background-color: #128f76; }
+        .hero-imagen img {
+            max-width: 100%;        /* Se adapta al tamaño del contenedor */
+            height: auto;
+            border-radius: 8px;     /* Bordes redondeados elegantes */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
+        }
 
         /* Contenedor de las secciones */
         .seccion { 
@@ -118,11 +124,11 @@
             transition: transform 0.3s;
         }
 
-        /* --- NUEVOS ESTILOS PARA EL SLIDER --- */
+        /* --- ESTILOS PARA EL SLIDER --- */
         #slider-container {
-            max-width: 600px; /* Ancho máximo del slider */
+            max-width: 600px; 
             width: 100%;
-            overflow: hidden; /* Oculta lo que se sale del borde */
+            overflow: hidden; 
             position: relative;
             background: #fff;
             padding: 20px;
@@ -132,15 +138,15 @@
         }
 
         .slider-track {
-            display: flex; /* Pone las imágenes en una fila horizontal */
-            transition: transform 0.5s ease-in-out; /* Animación de desplazamiento */
+            display: flex; 
+            transition: transform 0.5s ease-in-out; 
             width: 100%;
         }
 
         .slide {
-            flex: 0 0 100%; /* Cada imagen ocupa exactamente el 100% de la caja */
+            flex: 0 0 100%; 
             width: 100%;
-            height: 350px; /* TAMAÑO FIJO para que todas sean exactamente iguales */
+            height: 350px; 
             object-fit: contain;
             border-radius: 8px;
             display: block;
@@ -173,7 +179,7 @@
             font-weight: bold;
             width: 40px;
             height: 40px;
-            border-radius: 50%; /* Botones redondos */
+            border-radius: 50%; 
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -185,9 +191,8 @@
             background-color: #18bc9c;
             color: #fff;
         }
-        /* --- FIN ESTILOS SLIDER --- */
 
-        /* Contenedor flotante e hiper-destacado para la fórmula de Fogg */
+        /* Contenedor de la fórmula de Fogg */
         .contenedor-formula {
             background: linear-gradient(135deg, #ffffff, #f0f4f8);
             border-left: 6px solid #18bc9c;
@@ -218,14 +223,12 @@
             animation: latido 2.5s infinite; 
         }
 
-        /* Animación de latido para la P de Prompt */
         @keyframes latido {
             0% { transform: scale(1); }
             50% { transform: scale(1.08); }
             100% { transform: scale(1); }
         }
 
-        /* Fondo alternativo para secciones */
         .fondo-gris { background-color: #f8f9fa; }
         .fondo-blanco { background-color: #fff; }
 
@@ -239,12 +242,20 @@
         }
         footer p { margin-bottom: 0.5rem; }
 
-        /* Ajustes para Teléfonos Móviles */
-        @media (max-width: 600px) {
+        /* --- ADAPTACIÓN MÓVIL OPTIMIZADA --- */
+        @media (max-width: 768px) {
+            .hero { 
+                flex-direction: column; /* Apila la imagen debajo del texto en móviles */
+                text-align: center; 
+                padding: 3rem 1.5rem;
+            }
+            .hero-texto {
+                text-align: center; /* Centra el texto solo en pantallas chicas */
+            }
             .hero h1 { font-size: 2.2rem; }
             .formula-destacada { font-size: 3rem; }
             nav { display: flex; flex-direction: column; gap: 15px; }
-            .slide { height: 250px; } /* Imágenes un poco más pequeñas en móvil */
+            .slide { height: 250px; } 
         }
     </style>
 </head>
@@ -259,14 +270,22 @@
     </header>
 
     <section id="inicio" class="hero">
-        <h1>Cómo captar la atención con el Robot Mini</h1>
-        <p>Un experimento de robótica social en la Universidad Carlos III de Madrid para medir la atención de los humanos con respecto al robot.</p>
-        <a href="#hardware" class="btn">Conocer al Robot</a>
+        
+        <div class="hero-texto">
+            <h1>Cómo captar la atención con el Robot Mini</h1>
+            <p>Un experimento de robótica social en la Universidad Carlos III de Madrid para medir la atención de los humanos con respecto al robot.</p>
+            <a href="#hardware" class="btn">Conocer al Robot</a>
+        </div>
+        
+        <div class="hero-imagen">
+            <img src="robot-mini.jpg" alt="Robot Mini de la UC3M">
+        </div>
+        
     </section>
 
     <section id="problema" class="seccion fondo-gris">
-        <h2>El Desafío de la Atención</h2>
-        <p class="descripcion">En un mundo lleno de pantallas y estímulos constantes, captar la atención de un humano de forma natural es un reto complejo. La realidad nos demuestra que un autómata estático es ignorado por los transeúntes, mientras que un robot que se mueve o interactúa de forma diferente puede conseguir llamar la atención.</p>
+        <h2>Finalidad del experimento</h2>
+        <p class="descripcion">Estudio sobre cómo un robot social puede captar la atención de las personas que pasan a su alrededor. El robot se colocará en el pasillo del edificio 1, planta 3, e intentará captar la atención de las personas que pasan a su lado mediante diversas estrategias. En el laboratorio de Robótica Social de la Universidad Carlos III de Madrid nos dedicamos a diseñar plataformas robóticas orientadas a la interacción humano-robot. Entre los elementos de diseño de los robots se encuentran su aspecto físico, su expresividad mediante sus actuadores y su capacidad de percibir el entorno que los rodea mediante sensores. Gracias a su capacidad de percibir el entorno, el robot, al ver que una persona pasa cerca de él, activará la estrategia de captación.</p>
         <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas.</p>
     </section>
 
@@ -319,48 +338,49 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.getElementById('slider-track');
-            const slides = Array.from(track.children);
-            const nextBtn = document.getElementById('next-btn');
-            const prevBtn = document.getElementById('prev-btn');
-            const caption = document.getElementById('slider-caption');
+            if(track) {
+                const slides = Array.from(track.children);
+                const nextBtn = document.getElementById('next-btn');
+                const prevBtn = document.getElementById('prev-btn');
+                const caption = document.getElementById('slider-caption');
 
-            // Textos que cambiarán con cada imagen
-            const captions = [
-                "Mini V1",
-                "Mini V2",
-                "Mini V3"
-            ];
+                const captions = ["Mini V1", "Mini V2", "Mini V3"];
+                let currentIndex = 0;
 
-            let currentIndex = 0;
+                const updateCaption = (index) => {
+                    if(caption) caption.textContent = captions[index];
+                };
 
-            const updateCaption = (index) => {
-                caption.textContent = captions[index];
-            };
+                const moveToSlide = (index) => {
+                    const amountToMove = slides[index].clientWidth * index;
+                    track.style.transform = `translateX(-${amountToMove}px)`;
+                    currentIndex = index;
+                    updateCaption(index);
+                };
 
-            const moveToSlide = (index) => {
-                const amountToMove = slides[index].clientWidth * index;
-                track.style.transform = `translateX(-${amountToMove}px)`;
-                currentIndex = index;
-                updateCaption(index);
-            };
+                if(nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        let nextIndex = currentIndex + 1;
+                        if (nextIndex >= slides.length) nextIndex = 0;
+                        moveToSlide(nextIndex);
+                    });
+                }
 
-            nextBtn.addEventListener('click', () => {
-                let nextIndex = currentIndex + 1;
-                if (nextIndex >= slides.length) nextIndex = 0;
-                moveToSlide(nextIndex);
-            });
+                if(prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        let prevIndex = currentIndex - 1;
+                        if (prevIndex < 0) prevIndex = slides.length - 1;
+                        moveToSlide(prevIndex);
+                    });
+                }
 
-            prevBtn.addEventListener('click', () => {
-                let prevIndex = currentIndex - 1;
-                if (prevIndex < 0) prevIndex = slides.length - 1;
-                moveToSlide(prevIndex);
-            });
-
-            // Ajusta el tamaño si giras el móvil o cambias la ventana
-            window.addEventListener('resize', () => {
-                const amountToMove = slides[currentIndex].clientWidth * currentIndex;
-                track.style.transform = `translateX(-${amountToMove}px)`;
-            });
+                window.addEventListener('resize', () => {
+                    if(slides[currentIndex]) {
+                        const amountToMove = slides[currentIndex].clientWidth * currentIndex;
+                        track.style.transform = `translateX(-${amountToMove}px)`;
+                    }
+                });
+            }
         });
     </script>
 </body>
