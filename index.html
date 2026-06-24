@@ -33,7 +33,7 @@
         }
         nav a:hover { color: #18bc9c; }
 
-        /* Sección Principal (Hero) - RESTAURADA A CENTRADA */
+        /* Sección Principal (Hero) */
         .hero { 
             background-color: #fff; 
             padding: 5rem 2rem; 
@@ -68,7 +68,7 @@
         /* Contenedor de las secciones */
         .seccion { 
             padding: 4rem 2rem; 
-            max-width: 1100px; /* Ampliado un poco para que quepan mejor las dos columnas */
+            max-width: 1100px; 
             margin: 0 auto; 
             text-align: center; 
         }
@@ -80,23 +80,23 @@
         .seccion p.descripcion {
             font-size: 1.1rem;
             color: #555;
-            margin-bottom: 1.5rem; /* Reducido para mejor distribución en columna */
+            margin-bottom: 1.5rem; 
         }
 
-        /* --- NUEVOS ESTILOS PARA LAS COLUMNAS DE LA FINALIDAD --- */
+        /* Columnas de la Finalidad del Experimento */
         .contenedor-columnas {
             display: flex;
-            align-items: center;      /* Centra verticalmente texto e imagen */
+            align-items: center;      
             justify-content: space-between;
-            gap: 40px;                /* Espacio de separación entre columnas */
+            gap: 40px;                
             margin-top: 2rem;
         }
         .columna-texto {
-            flex: 1.2;                /* Le da un poco más de espacio al texto */
-            text-align: left;         /* Alinea el texto a la izquierda */
+            flex: 1.2;                
+            text-align: left;         
         }
         .columna-imagen {
-            flex: 0.8;                /* Espacio para la columna de la imagen */
+            flex: 0.8;                
             text-align: center;
         }
         .columna-imagen img {
@@ -256,22 +256,19 @@
         }
         footer p { margin-bottom: 0.5rem; }
 
-        /* Ajustes para Teléfonos Móviles */
+        /* Ajustes Exclusivos para Teléfonos Móviles */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .formula-destacada { font-size: 3rem; }
             nav { display: flex; flex-direction: column; gap: 15px; }
-            .slide { height: 250px; } 
             
-            /* En móviles, el texto y la imagen de la finalidad se apilan verticalmente */
+            /* La sección de finalidad se adapta a vertical en móviles */
             .contenedor-columnas {
                 flex-direction: column;
                 text-align: center;
                 gap: 25px;
             }
-            .columna-texto {
-                text-align: center;
-            }
+            .columna-texto { text-align: center; }
         }
     </style>
 </head>
@@ -280,57 +277,32 @@
     <header>
         <nav>
             <a href="#inicio">Inicio</a>
-            <a href="#problema">Funcionalidad</a>
-            <a href="#proteccion">Protección de datos</a>
+            <a href="#problema">El Reto</a>
             <a href="#interaccion">Interacción</a>
+            <a href="#nueva-seccion">Más Info</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <h1>Cómo captar la atención con el Robot Mini</h1>
         <p>Un experimento de robótica social en la Universidad Carlos III de Madrid para medir la atención de los humanos con respecto al robot.</p>
-        <a href="#proteccion" class="btn">Protección de datos</a>
+        <a href="#hardware" class="btn">Conocer al Robot</a>
     </section>
 
     <section id="problema" class="seccion fondo-gris">
         <h2>Finalidad del experimento</h2>
-        
         <div class="contenedor-columnas">
-            
             <div class="columna-texto">
-                <p class="descripcion">Estudio sobre cómo un robot social puede captar la atención de las personas que pasan a su alrededor. El robot se colocará en el pasillo del edificio 1, planta 3, e intentará captar la atención de las personas que pasan a su lado mediante diversas estrategias. En el laboratorio de Robótica Social de la Universidad Carlos III de Madrid nos dedicamos a diseñar plataformas robóticas orientadas a la interacción humano-robot. Entre los elementos de diseño de los robots se encuentran su aspecto físico, su expresividad mediante sus actuadores y su capacidad de percibir el entorno que los rodea mediante sensores. Gracias a su capacidad de percibir el entorno, el robot, al ver que una persona pasa cerca de él, activará la estrategia de captación.</p>
+                <p class="descripcion">Estudio sobre cómo un robot social puede captar la atención de las personas que pasan a su alrededor. El robot se colocará en el pasillo del edificio 1, planta 3, e intentará captar la atención de las personas que pasan a su lado mediante diversas estrategias. En el laboratorio de Robótica Social de la Universidad Carlos III de Madrid nos dedicamos a diseñar plataformas robóticas orientadas a la interacción humano-robot. Entre los elementos de diseño de los robots se encuentran su aspecto físico, su expresividad mediante sus actuadores and su capacidad de percibir el entorno que los rodea mediante sensores. Gracias a su capacidad de percibir el entorno, el robot, al ver que una persona pasa cerca de él, activará la estrategia de captación.</p>
+                <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas.</p>
             </div>
-            
             <div class="columna-imagen">
-                <img src="image/MINI_V3.png" alt="Esquema o foto de la finalidad del experimento">
+                <img src="finalidad-experimento.jpg" alt="Esquema o foto de la finalidad del experimento">
             </div>
-            
-        </div>
-    </section>
-    
-    <section id="protección" class="seccion fondo-gris">
-        <h2>Metodología y Resultados</h2>
-        <p class="descripcion">Protección de datos</p>
-        
-        <div class="dos-cuadros">
-            
-            <!-- CUADRO IZQUIERDO -->
-            <div class="cuadro-texto">
-                <h3>Ciclo de vida de los datos</h3>
-                <p>Los datos personales son previamente pseudonimizados mediante un hash SHA256, considerado irreversible hasta la fecha. Toda la información es tratada según los estándares y recomendaciones actuales de privacidad. El acceso a los datos del sistema se realiza mediante comunicaciones cifradas y está protegido por usuario y contraseña además de ser únicamente accesibles desde la red corporativa. Los datos se almacenan de forma segura y cifrada y se guarda un registro de acceso a los mismos por el personal autorizado. El personal no realizará ninguna acción orientada a la identificación de la información pseudonimizada.</p>
-                <p style="margin-top: 1rem;">Puedes añadir varios párrafos dentro del mismo cuadro sin problema.</p>
-            </div>
-            
-            <!-- CUADRO DERECHO -->
-            <div class="cuadro-texto">
-                <h3>Responsable y tratamiento</h3>
-                <p>El responsable del proyecto es Sara Carrasco Martinez, profesor del Departamento de Ingeniería Telemática de la Universidad, a quien puedes contactar en  para cualquier consulta relacionada con el tratamiento de tus datos. Para más información sobre el proyecto o para ejercer tus derechos relacionados con el tratamiento de datos, como acceso, rectificación, supresión («derecho al olvido»), limitación, portabilidad u oposición, puedes contactar al responsable. También puedes ejercer estos derechos enviando un correo a dpd@uc3m.es. Para consultar nuestra Política de Privacidad en detalle, visita: https://www.uc3m.es/protecciondedatos.</p>
-            </div>
-
         </div>
     </section>
 
-    <section id="interaccion" class="seccion fondo-gris">
+    <section id="interaccion" class="seccion fondo-blanco">
         <h2>¿Cómo funciona la interacción?</h2>
         <p class="descripcion">El experimento se basa en la <strong>Captología</strong> (el estudio de la tecnología persuasiva). El término captology lo acuñó B.J. Fogg, un académico de la Universidad de Stanford y uno de los padres de la robótica social. Este establece que, para que una acción ocurra, deben coincidir tres elementos simultáneamente:</p>
         
@@ -362,11 +334,30 @@
             </div>
         </div>
 
-        <div style="margin-top: 3rem; background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <div style="margin-top: 3rem; background-color: #f8f9fa; padding: 2rem; border-radius: 8px; border: 1px solid #eaeaea; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
             <h3 style="color: #18bc9c; margin-bottom: 1rem; text-align: center;">La Clave del Experimento: El robot que invita a participar</h3>
-            <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+            <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem; text-align: center;">
                 Este experimento se centra en el <strong>Prompt</strong> o el <strong>Trigger</strong>, en reconocer cuál es el método cinemático o sonoro más eficaz para llamar la atención del transeúnte y cruzar la línea de acción del modelo.
             </p>
+        </div>
+    </section>
+
+    <section id="nueva-seccion" class="seccion fondo-gris">
+        <h2>Metodología y Resultados</h2>
+        <p class="descripcion">Detalles adicionales sobre el proceso de ejecución y las métricas obtenidas durante las pruebas del robot en el pasillo.</p>
+        
+        <div class="grid" style="flex-wrap: nowrap; gap: 25px;">
+            
+            <div class="tarjeta" style="max-width: 500px; flex: 1;">
+                <h3>Metodología Aplicada</h3>
+                <p>Aquí puedes escribir la información sobre el primer apartado. Ahora tiene exactamente el mismo diseño, bordes, tipografía centrada y sombra flotante que las tarjetas que usaste arriba.</p>
+            </div>
+            
+            <div class="tarjeta" style="max-width: 500px; flex: 1;">
+                <h3>Resultados Obtenidos</h3>
+                <p>En este segundo cuadro puedes añadir los datos recolectados. Al igual que el cuadro de al lado, mantendrá su posición en paralelo en cualquier pantalla y reaccionará de manera interactiva cuando pases el cursor.</p>
+            </div>
+
         </div>
     </section>
 
@@ -376,55 +367,5 @@
         <p><em>Trabajo de Fin de Grado - 2026</em></p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const track = document.getElementById('slider-track');
-            if(track) {
-                const slides = Array.from(track.children);
-                const nextBtn = document.getElementById('next-btn');
-                const prevBtn = document.getElementById('prev-btn');
-                const caption = document.getElementById('slider-caption');
-
-                const captions = ["Mini V1", "Mini V2", "Mini V3"];
-                let currentIndex = 0;
-
-                const updateCaption = (index) => {
-                    if(caption) caption.textContent = captions[index];
-                };
-
-                const moveToSlide = (index) => {
-                    const amountToMove = slides[index].clientWidth * index;
-                    track.style.transform = `translateX(-${amountToMove}px)`;
-                    currentIndex = index;
-                    updateCaption(index);
-                };
-
-                if(nextBtn) {
-                    nextBtn.addEventListener('click', () => {
-                        let nextIndex = currentIndex + 1;
-                        if (nextIndex >= slides.length) nextIndex = 0;
-                        moveToSlide(nextIndex);
-                    });
-                }
-
-                if(prevBtn) {
-                    prevBtn.addEventListener('click', () => {
-                        let prevIndex = currentIndex - 1;
-                        if (prevIndex < 0) prevIndex = slides.length - 1;
-                        moveToSlide(prevIndex);
-                    });
-                }
-
-                window.addEventListener('resize', () => {
-                    if(slides[currentIndex]) {
-                        const amountToMove = slides[currentIndex].clientWidth * currentIndex;
-                        track.style.transform = `translateX(-${amountToMove}px)`;
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
 </body>
 </html>
