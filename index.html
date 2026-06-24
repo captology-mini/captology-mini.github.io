@@ -33,21 +33,12 @@
         }
         nav a:hover { color: #18bc9c; }
 
-        /* --- SECCIÓN PRINCIPAL (HERO) MODIFICADA EN PARALELO --- */
+        /* Sección Principal (Hero) - RESTAURADA A CENTRADA */
         .hero { 
             background-color: #fff; 
             padding: 5rem 2rem; 
+            text-align: center; 
             border-bottom: 1px solid #eaeaea; 
-            display: flex;          /* Activa el diseño de lado a lado */
-            align-items: center;    /* Centra verticalmente el texto y la imagen */
-            justify-content: space-between; 
-            max-width: 1100px;      /* Limita el ancho de la sección */
-            margin: 0 auto;         /* Centra la sección en la pantalla */
-            gap: 40px;              /* Separación entre el texto y la imagen */
-        }
-        .hero-texto {
-            flex: 1;                /* Toma el 50% del espacio */
-            text-align: left;       /* Alinea el texto a la izquierda */
         }
         .hero h1 { 
             font-size: 2.8rem; 
@@ -58,23 +49,26 @@
             font-size: 1.2rem; 
             color: #7f8c8d; 
             margin-bottom: 2rem; 
-            max-width: 600px;       /* Evita líneas de texto demasiado largas */
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .hero-imagen {
-            flex: 1;                /* Toma el otro 50% del espacio */
-            text-align: center;
+        .btn { 
+            display: inline-block; 
+            padding: 12px 30px; 
+            background-color: #18bc9c; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            transition: background 0.3s; 
         }
-        .hero-imagen img {
-            max-width: 100%;        /* Se adapta al tamaño del contenedor */
-            height: auto;
-            border-radius: 8px;     /* Bordes redondeados elegantes */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
-        }
+        .btn:hover { background-color: #128f76; }
 
         /* Contenedor de las secciones */
         .seccion { 
             padding: 4rem 2rem; 
-            max-width: 1000px; 
+            max-width: 1100px; /* Ampliado un poco para que quepan mejor las dos columnas */
             margin: 0 auto; 
             text-align: center; 
         }
@@ -86,10 +80,30 @@
         .seccion p.descripcion {
             font-size: 1.1rem;
             color: #555;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 1.5rem; /* Reducido para mejor distribución en columna */
+        }
+
+        /* --- NUEVOS ESTILOS PARA LAS COLUMNAS DE LA FINALIDAD --- */
+        .contenedor-columnas {
+            display: flex;
+            align-items: center;      /* Centra verticalmente texto e imagen */
+            justify-content: space-between;
+            gap: 40px;                /* Espacio de separación entre columnas */
+            margin-top: 2rem;
+        }
+        .columna-texto {
+            flex: 1.2;                /* Le da un poco más de espacio al texto */
+            text-align: left;         /* Alinea el texto a la izquierda */
+        }
+        .columna-imagen {
+            flex: 0.8;                /* Espacio para la columna de la imagen */
+            text-align: center;
+        }
+        .columna-imagen img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         /* Tarjetas de Servicios/Proyectos */
@@ -242,20 +256,22 @@
         }
         footer p { margin-bottom: 0.5rem; }
 
-        /* --- ADAPTACIÓN MÓVIL OPTIMIZADA --- */
+        /* Ajustes para Teléfonos Móviles */
         @media (max-width: 768px) {
-            .hero { 
-                flex-direction: column; /* Apila la imagen debajo del texto en móviles */
-                text-align: center; 
-                padding: 3rem 1.5rem;
-            }
-            .hero-texto {
-                text-align: center; /* Centra el texto solo en pantallas chicas */
-            }
             .hero h1 { font-size: 2.2rem; }
             .formula-destacada { font-size: 3rem; }
             nav { display: flex; flex-direction: column; gap: 15px; }
             .slide { height: 250px; } 
+            
+            /* En móviles, el texto y la imagen de la finalidad se apilan verticalmente */
+            .contenedor-columnas {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            .columna-texto {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -270,23 +286,26 @@
     </header>
 
     <section id="inicio" class="hero">
-        
-        <div class="hero-texto">
-            <h1>Cómo captar la atención con el Robot Mini</h1>
-            <p>Un experimento de robótica social en la Universidad Carlos III de Madrid para medir la atención de los humanos con respecto al robot.</p>
-            <a href="#hardware" class="btn">Conocer al Robot</a>
-        </div>
-        
-        <div class="hero-imagen">
-            <img src="robot-mini.jpg" alt="Robot Mini de la UC3M">
-        </div>
-        
+        <h1>Cómo captar la atención con el Robot Mini</h1>
+        <p>Un experimento de robótica social en la Universidad Carlos III de Madrid para medir la atención de los humanos con respecto al robot.</p>
+        <a href="#hardware" class="btn">Conocer al Robot</a>
     </section>
 
     <section id="problema" class="seccion fondo-gris">
         <h2>Finalidad del experimento</h2>
-        <p class="descripcion">Estudio sobre cómo un robot social puede captar la atención de las personas que pasan a su alrededor. El robot se colocará en el pasillo del edificio 1, planta 3, e intentará captar la atención de las personas que pasan a su lado mediante diversas estrategias. En el laboratorio de Robótica Social de la Universidad Carlos III de Madrid nos dedicamos a diseñar plataformas robóticas orientadas a la interacción humano-robot. Entre los elementos de diseño de los robots se encuentran su aspecto físico, su expresividad mediante sus actuadores y su capacidad de percibir el entorno que los rodea mediante sensores. Gracias a su capacidad de percibir el entorno, el robot, al ver que una persona pasa cerca de él, activará la estrategia de captación.</p>
-        <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas.</p>
+        
+        <div class="contenedor-columnas">
+            
+            <div class="columna-texto">
+                <p class="descripcion">Estudio sobre cómo un robot social puede captar la atención de las personas que pasan a su alrededor. El robot se colocará en el pasillo del edificio 1, planta 3, e intentará captar la atención de las personas que pasan a su lado mediante diversas estrategias. En el laboratorio de Robótica Social de la Universidad Carlos III de Madrid nos dedicamos a diseñar plataformas robóticas orientadas a la interacción humano-robot. Entre los elementos de diseño de los robots se encuentran su aspecto físico, su expresividad mediante sus actuadores y su capacidad de percibir el entorno que los rodea mediante sensores. Gracias a su capacidad de percibir el entorno, el robot, al ver que una persona pasa cerca de él, activará la estrategia de captación.</p>
+                <p class="descripcion"><strong>Objetivo del proyecto:</strong> Desarrollar e implementar unas estrategias para captar la atención y valorar la eficiencia de las mismas.</p>
+            </div>
+            
+            <div class="columna-imagen">
+                <img src="finalidad-experimento.jpg" alt="Esquema o foto de la finalidad del experimento">
+            </div>
+            
+        </div>
     </section>
 
     <section id="interaccion" class="seccion fondo-gris">
@@ -383,5 +402,7 @@
             }
         });
     </script>
+</body>
+</html>
 </body>
 </html>
